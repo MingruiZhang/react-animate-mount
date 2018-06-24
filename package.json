@@ -2,9 +2,10 @@
   "name": "react-animate-mount",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src/ -d lib/",
+    "prepublish": "yarn run build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,28 @@
   "bugs": {
     "url": "https://github.com/MingruiZhang/react-animate-mount/issues"
   },
-  "homepage": "https://github.com/MingruiZhang/react-animate-mount#readme"
+  "homepage": "https://github.com/MingruiZhang/react-animate-mount#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.5",
+    "babel-plugin-react-native-web": "^0.8.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^5.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-flowtype": "^2.49.3",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^2.6.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-react": "^7.9.1",
+    "flow-bin": "^0.75.0",
+    "prettier": "^1.13.5",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-native-web": "^0.8.4"
+  }
 }

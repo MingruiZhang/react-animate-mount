@@ -3,6 +3,8 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { StyleSheet, View } from 'react-native';
 
+// import "./utils/animate.css";
+
 type AnimateSpeedEnum = $Keys<typeof AnimateSpeed>;
 const AnimateSpeed = Object.freeze({
   fast: 100,
@@ -92,33 +94,44 @@ export class Animate extends React.Component<Props, State> {
   }
 
   render() {
-    const { animateProps: { height, opacity }, animateStage, renderChildren, props: { show, speed } } = this.state;
+    const {
+      animateProps: { height, opacity },
+      animateStage,
+      renderChildren,
+      props: { show, speed }
+    } = this.state;
     const isStatic = animateStage === AnimateStage.static;
     const isAnimate = animateStage === AnimateStage.animate;
 
+    console.log('AnimateStage.animate: ', AnimateStage.animate);
+
     if (isStatic) {
       return show ? (
-        <View>
-          <View>{renderChildren}</View>
-        </View>
+        <div>
+          <div>{renderChildren}</div>
+        </div>
       ) : null;
     } else {
-      const outerLayerStyle = [
-        isAnimate && styles.transitionStyles,
-        isAnimate && { transitionDuration: `${AnimateSpeed[speed]}ms` },
-        { height, opacity }
-      ];
+
+      const animateStyles = isAnimate ? transitionStyles : {};
+      const outerLayerStyle = {
+        ...animateStyles,
+        height,
+        opacity
+      };
 
       return (
-        <View onTransitionEnd={this._handleTransitionEnd} ref={this._setOuterLayerNode} style={outerLayerStyle}>
-          <View ref={this._setInnerLayerNode}>{renderChildren}</View>
-        </View>
+        <div onTransitionEnd={this._handleTransitionEnd} ref={this._setOuterLayerNode} style={outerLayerStyle}>
+          <div ref={this._setInnerLayerNode}>{renderChildren}</div>
+        </div>
       );
     }
   }
 
   _transitionStart = ({ componentHeight }: Object) => {
-    const { props: { show, type } } = this.state;
+    const {
+      props: { show, type }
+    } = this.state;
     const isFade = type === 'fade';
     if (show) {
       this.setState(
@@ -150,6 +163,7 @@ export class Animate extends React.Component<Props, State> {
   };
 
   _handleTransitionEnd = (event: SyntheticTransitionEvent<*>) => {
+    console.log('ending');
     const { onAnimateComplete, show } = this.props;
     // Prevent side-effect of capturing parent transition events
     if (event.target === this._outerLayerNode) {
@@ -184,12 +198,19 @@ export class Animate extends React.Component<Props, State> {
   };
 }
 
-const styles = StyleSheet.create({
-  transitionStyles: {
-    transitionProperty: 'opacity, height',
-    transitionTimingFunction: 'ease',
-    overflow: 'hidden'
-  }
-});
+const transitionStyles = {
+  transitionProperty: 'opacity, height',
+  transitionTimingFunction: 'ease',
+  transitionDuration: '250ms',
+  overflow: 'hidden'
+};
+
+// const styles = StyleSheet.create({
+//   transitionStyles: {
+//     transitionProperty: 'opacity, height',
+//     transitionTimingFunction: 'ease',
+//     overflow: 'hidden'
+//   }
+// });
 
 export default Animate;

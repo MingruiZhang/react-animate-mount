@@ -1,0 +1,6 @@
+.transitionStyles {
+	transition-property: height, opacity;
+	transition-duration: 200ms;
+	transition-timing-function: ease;
+	overflow: hidden;
+}

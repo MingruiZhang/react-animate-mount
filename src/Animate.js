@@ -38,7 +38,7 @@ export class Animate extends React.Component<Props, State> {
   _innerLayerNode: ?(Element | Text);
 
   static defaultProps = {
-    duration: 200,
+    duration: 250,
     type: 'slide'
   };
 

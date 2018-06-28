@@ -5,7 +5,8 @@ import mergeDiff, { type ChildWithStatus, Status } from './utils/mergeDiff';
 
 type Props = {|
   children: React.Node,
-  onAnimateComplete?: () => void
+  onAnimateComplete?: () => void,
+  type: 'slide' | 'fade',
 |};
 
 type State = {|
@@ -56,6 +57,7 @@ class AnimateGroup extends React.Component<Props, State> {
   }
 
   render() {
+    const { type } = this.props;
     const { renderChildren } = this.state;
     return renderChildren.map(({ status, child }) => {
       return (
@@ -64,6 +66,7 @@ class AnimateGroup extends React.Component<Props, State> {
           key={child.key}
           onAnimateComplete={this._handleEachAnimateComplete}
           show={status !== Status.out}
+          type={type}
         >
           {child}
         </Animate>

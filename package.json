@@ -7,7 +7,10 @@
     "build": "npm run clean && babel src/ -d lib/",
     "clean": "rimraf lib",
     "prepublish": "npm run build",
-    "lint": "eslint src/"
+    "webpack": "webpack",
+    "lint": "eslint src/",
+    "start": "NODE_ENV=development webpack-dev-server --mode=development --hot",
+    "test": "jest test/"
   },
   "repository": {
     "type": "git",
@@ -23,11 +26,13 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
+    "babel-loader": "^7.1.4",
     "babel-plugin-react-native-web": "^0.8.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.11",
     "eslint": "^5.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-standard": "^11.0.0",
@@ -36,11 +41,20 @@
     "eslint-plugin-prettier": "^2.6.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-react": "^7.9.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "flow-bin": "^0.75.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.2.0",
+    "path": "^0.12.7",
+    "postcss-loader": "^2.1.5",
     "prettier": "^1.13.5",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "react-native-web": "^0.8.5"

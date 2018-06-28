@@ -2245,9 +2245,9 @@ react-dom@^16.4.1:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-native-web@^0.8.4:
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.8.4.tgz#0555f99bff8d90674e9b4b4d414ad5c2272bdb12"
+react-native-web@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.8.5.tgz#c11d1eccd18d9a0be87e0ddceaa8a6c6e2375637"
   dependencies:
     array-find-index "^1.0.2"
     create-react-class "^15.6.2"
@@ -2405,7 +2405,7 @@ restore-cursor@^2.0.0:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
 
-rimraf@^2.2.8, rimraf@^2.6.1:
+rimraf@^2.2.8, rimraf@^2.6.1, rimraf@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   dependencies:

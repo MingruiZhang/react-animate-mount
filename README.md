@@ -32,11 +32,11 @@ this.state.show ? {childen} : null;
 ### Props
 
 | Name                                               | Type     | Description                                                                                                                                                                              |
-| :------------------------------------------------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :------------------------------------------------- | :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | show        | boolean    | The key boolean that indicate if the children should be mounted    |
 | animateOnInit | ?boolean = false | Normally component is not animated when `<Animate>` mounts. With this flag the child component will animate in on initialization.   |
 | duration       | ?number = 200 | The duration you want the animate to last in ms, default to 200 |
-| type       | ?string('slide' | 'fade') = 'slide' | Specify animation effect, sliding or pure fading |
+| type       | ?string('slide' or 'fade') = 'slide' | Specify animation effect, sliding or pure fading |
 | onAnimateComplete       | ?function | Invokes when component animation finishes. |
 
 

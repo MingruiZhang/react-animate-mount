@@ -4,8 +4,8 @@
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/mingruizhang/react-animate-mount/blob/master/LICENSE)
 
 React-Animate-Mount provides lightweight and simple wrapper for sliding (to auto height) and Fading animation when component mounts and unmount:
-* **Animate** provides animation for single component when mount & umount
-* **AnimateGroup** provides animation for items entering & leaving a groups of items
+* [**Animate**](https://github.com/MingruiZhang/react-animate-mount#animate) provides animation for single component when mount & umount
+* [**AnimateGroup**](https://github.com/MingruiZhang/react-animate-mount#animate) provides animation for items entering & leaving a groups of items
 
 See ... for examples
 
@@ -21,20 +21,24 @@ $ yarn add react-animate-mount
 
 ```
 /** Before **/
-show ? {childen} : null;
+this.state.show ? {childen} : null;
 
 /** After **/
-<Animate show={show}>
+<Animate show={this.state.show}>
   {childen}
 </Animate>
 ```
 
 ### Props
 
-| Name                                               | Type     | Default  | Description                                                                                                                                                                              |
-| :------------------------------------------------- | :------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show        | boolean    |          | The key boolean that indicate if the children should be mounted    |
-| keyAccessor | function |          | Function that returns a string key given a data object and its index. Used to track which nodes are entering, updating and leaving.                                                      |
-| start       | function |          | A function that returns the starting state. The function is passed the data and index and must return an object.                                                                         |
+| Name                                               | Type     | Description                                                                                                                                                                              |
+| :------------------------------------------------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show        | boolean    | The key boolean that indicate if the children should be mounted    |
+| animateOnInit | ?boolean = false | Normally component is not animated when `<Animate>` mounts. With this flag the child component will animate in on initialization.   |
+| duration       | ?number = 200 | The duration you want the animate to last in ms, default to 200 |
+| type       | ?string('slide' | 'fade') = 'slide' | Specify animation effect, sliding or pure fading |
+| onAnimateComplete       | ?function | Invokes when component animation finishes. |
+
+
 
 

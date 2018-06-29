@@ -1,11 +1,4 @@
 {
-  "plugins": [
-    "react-native-web"
-  ],
-  "presets": [
-		"env",
-		"react",
-    "flow",
-    "stage-2"
-  ]
+  "plugins": ["react-native-web"],
+  "presets": ["env", "react", "flow", "stage-2"]
 }

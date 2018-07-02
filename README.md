@@ -15,8 +15,8 @@ $ yarn add react-animate-mount
 
 #### Demos
 
-* Animate - https://codesandbox.io/s/303lzkow5
-* AnimateGroup - https://codesandbox.io/s/zrwyk6l933
+* https://codesandbox.io/s/303lzkow5
+* https://codesandbox.io/s/zrwyk6l933
 
 
 ## Animate

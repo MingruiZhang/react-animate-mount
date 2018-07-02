@@ -9,15 +9,16 @@ Simple and light wrapper component for sliding (to auto height) and fading anima
 
 See ... for examples
 
-### Install
+#### Install
 
 ```bash
 $ yarn add react-animate-mount
 ```
 
-### Demos
+#### Demos
 
-https://codesandbox.io/s/303lzkow5
+**Animate**: https://codesandbox.io/s/303lzkow5
+**AnimateGroup**: https://codesandbox.io/s/zrwyk6l933
 
 
 ## Animate

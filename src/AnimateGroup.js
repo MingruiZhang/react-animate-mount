@@ -5,13 +5,13 @@ import mergeDiff, { type ChildWithStatus, Status } from './utils/mergeDiff';
 
 type Props = {|
   children: React.Node,
-  duration: number,
+  duration?: number,
   onAnimateComplete?: () => void,
-  type: 'slide' | 'fade',
+  type?: 'slide' | 'fade'
 |};
 
 type State = {|
-  animateCounter: number,
+  isAnimating: boolean,
   renderChildren: Array<ChildWithStatus>
 |};
 
@@ -19,7 +19,7 @@ class AnimateGroup extends React.Component<Props, State> {
   _mounted: boolean;
 
   state = {
-    animateCounter: 0,
+    isAnimating: false,
     renderChildren: React.Children.toArray(this.props.children).map(child => ({
       status: Status.static,
       child
@@ -32,12 +32,11 @@ class AnimateGroup extends React.Component<Props, State> {
       React.Children.toArray(nextProps.children)
     );
 
-    const animateCounter = newChildrenWithState.reduce(
-      (counter, { child, status }) => (status !== Status.static ? counter + 1 : counter),
-      prevState.animateCounter
-    );
-
-    return { renderChildren: newChildrenWithState, animateCounter };
+    if (!newChildrenWithState.every(child => child.status === Status.static)) {
+      return { renderChildren: newChildrenWithState, isAnimating: true };
+    } else {
+      return null;
+    }
   }
 
   componentDidMount() {
@@ -46,15 +45,6 @@ class AnimateGroup extends React.Component<Props, State> {
 
   componentWillUnmount() {
     this._mounted = false;
-  }
-
-  shouldComponentUpdate(nextProps: Props, nextState: State) {
-    if (nextProps.children === this.props.children && nextState.renderChildren === this.state.renderChildren) {
-      // Block the update if children render didn't change (so when animateCounter changes)
-      return false;
-    } else {
-      return true;
-    }
   }
 
   render() {
@@ -77,21 +67,18 @@ class AnimateGroup extends React.Component<Props, State> {
   }
 
   _handleEachAnimateComplete = () => {
-    const { animateCounter } = this.state;
+    const { isAnimating } = this.state;
     const { onAnimateComplete, children } = this.props;
-    this.setState({ animateCounter: animateCounter - 1 }, () => {
-      if (this.state.animateCounter === 0) {
-        onAnimateComplete && onAnimateComplete();
-        this._requestNewFrame(() => {
-          this.setState({
-            renderChildren: React.Children.toArray(children).map(child => ({
-              status: Status.static,
-              child
-            }))
-          });
-        });
-      }
-    });
+    if (isAnimating) {
+      onAnimateComplete && onAnimateComplete();
+      this.setState({
+        renderChildren: React.Children.toArray(children).map(child => ({
+          status: Status.static,
+          child
+        })),
+        isAnimating: false
+      });
+    }
   };
 
   _requestNewFrame = (cb: () => void) => {

@@ -2,24 +2,22 @@
 import * as React from 'react';
 import Animate from '../src/Animate';
 import { mount } from 'enzyme';
-import { View } from 'react-native';
 
-const TestChildren = <View testID={'children'} />;
+const TestChildren = <div testid={'children'} />;
 const onCompleteFn = jest.fn();
 const outerLayerNode = 'outerLayerNode';
 
 const validateStaticMounted = component => {
   expect(component.state('animateStage')).toBe('static');
   expect(onCompleteFn).toBeCalled();
-  expect(component.find({ testID: 'children' })).toHaveLength(1);
+  expect(component.find({ testid: 'children' })).toHaveLength(1);
 };
 
 const validateStaticUnmounted = component => {
   expect(component.state('animateStage')).toBe('static');
   expect(onCompleteFn).toBeCalled();
   component.update();
-  expect(component.find({ testID: 'children' })).toHaveLength(0);
-  expect(component.find(View)).toHaveLength(0);
+  expect(component.find({ testid: 'children' })).toHaveLength(0);
 };
 
 describe('Animate', () => {
@@ -30,16 +28,16 @@ describe('Animate', () => {
 
   describe('initial render', () => {
     test('be null when show=false', () => {
-      const component = new Animate({ show: false, children: TestChildren, duration: 'normal', type: 'slide' });
+      const component = new Animate({ show: false, children: TestChildren, duration: 200, type: 'slide' });
       expect(component.render()).toBeNull();
     });
 
     test('be children 2 wrapped View when show=true', () => {
-      const component = new Animate({ show: true, children: TestChildren, duration: 'normal', type: 'slide' });
+      const component = new Animate({ show: true, children: TestChildren, duration: 200, type: 'slide' });
       expect(component.render()).toEqual(
-        <View>
-          <View>{TestChildren}</View>
-        </View>
+        <div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>{TestChildren}</div>
+        </div>
       );
     });
   });
@@ -55,14 +53,13 @@ describe('Animate', () => {
         </Animate>
       );
       component.instance()._setInnerLayerNode = jest.fn();
-      expect(component.find({ testID: 'children' })).toHaveLength(0);
+      expect(component.find({ testid: 'children' })).toHaveLength(0);
       expect(component.state('animateStage')).toBe('static');
       component.setProps({ show: true });
       // animateStage change to 'prep'
       expect(component.state('animateStage')).toBe('prep');
-      expect(component.find({ testID: 'children' })).toHaveLength(1);
-      expect(component.find(View)).toHaveLength(3);
-      const outerLayer = component.find(View).at(0);
+      expect(component.find({ testid: 'children' })).toHaveLength(1);
+      const outerLayer = component.children();
       transitionEndCallback = outerLayer.prop('onTransitionEnd');
       // animateStage change to 'animate'
       component.instance()._transitionStart({ componentHeight: 300 });
@@ -103,14 +100,13 @@ describe('Animate', () => {
         </Animate>
       );
       component.instance()._setInnerLayerNode = jest.fn();
-      expect(component.find({ testID: 'children' })).toHaveLength(1);
+      expect(component.find({ testid: 'children' })).toHaveLength(1);
       expect(component.state('animateStage')).toBe('static');
       component.setProps({ show: false });
       // animateStage change to 'prep'
       expect(component.state('animateStage')).toBe('prep');
-      expect(component.find({ testID: 'children' })).toHaveLength(1);
-      expect(component.find(View)).toHaveLength(3);
-      const outerLayer = component.find(View).at(0);
+      expect(component.find({ testid: 'children' })).toHaveLength(1);
+      const outerLayer = component.children();
       transitionEndCallback = outerLayer.prop('onTransitionEnd');
       component.instance()._transitionStart({ componentHeight: 300 });
       // animateStage change to 'animate'

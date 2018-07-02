@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { StyleSheet, View } from 'react-native';
 
 type AnimateStageEnum = $Values<typeof AnimateStage>;
 const AnimateStage = Object.freeze({
@@ -31,6 +30,15 @@ type State = {|
   componentHeight: number,
   props: Props
 |};
+
+// Set inner layer to be flex to avoid collapsing margins
+const innerLayerStyle = { display: 'flex', flexDirection: 'column' };
+const transitionStyle = duration => ({
+  transitionProperty: 'opacity, height',
+  transitionTimingFunction: 'ease',
+  overflow: 'hidden',
+  transitionDuration: `${duration}ms`
+});
 
 export class Animate extends React.Component<Props, State> {
   _mounted: boolean;
@@ -86,33 +94,38 @@ export class Animate extends React.Component<Props, State> {
   }
 
   render() {
-    const { animateProps: { height, opacity }, animateStage, renderChildren, props: { show, duration } } = this.state;
+    const {
+      animateProps: { height, opacity },
+      animateStage,
+      renderChildren,
+      props: { show, duration }
+    } = this.state;
     const isStatic = animateStage === AnimateStage.static;
     const isAnimate = animateStage === AnimateStage.animate;
 
+    const outerLayerStyle = isAnimate ? { height, opacity, ...transitionStyle(duration) } : { height, opacity };
+
     if (isStatic) {
       return show ? (
-        <View>
-          <View>{renderChildren}</View>
-        </View>
+        <div>
+          <div style={innerLayerStyle}>{renderChildren}</div>
+        </div>
       ) : null;
     } else {
-      const outerLayerStyle = [
-        isAnimate && styles.transitionStyles,
-        isAnimate && { transitionDuration: `${duration}ms` },
-        { height, opacity }
-      ];
-
       return (
-        <View onTransitionEnd={this._handleTransitionEnd} ref={this._setOuterLayerNode} style={outerLayerStyle}>
-          <View ref={this._setInnerLayerNode}>{renderChildren}</View>
-        </View>
+        <div onTransitionEnd={this._handleTransitionEnd} ref={this._setOuterLayerNode} style={outerLayerStyle}>
+          <div ref={this._setInnerLayerNode} style={innerLayerStyle}>
+            {renderChildren}
+          </div>
+        </div>
       );
     }
   }
 
   _transitionStart = ({ componentHeight }: Object) => {
-    const { props: { show, type } } = this.state;
+    const {
+      props: { show, type }
+    } = this.state;
     const isFade = type === 'fade';
     if (show) {
       this.setState(
@@ -165,11 +178,11 @@ export class Animate extends React.Component<Props, State> {
     });
   };
 
-  _setOuterLayerNode = (elementRef: ?React.ElementRef<typeof View>) => {
+  _setOuterLayerNode = (elementRef: ?React.ElementRef<*>) => {
     this._outerLayerNode = ReactDOM.findDOMNode(elementRef);
   };
 
-  _setInnerLayerNode = (elementRef: ?React.ElementRef<typeof View>) => {
+  _setInnerLayerNode = (elementRef: ?React.ElementRef<*>) => {
     const innerLayerNode = ReactDOM.findDOMNode(elementRef);
     if (innerLayerNode instanceof window.HTMLElement) {
       const height = innerLayerNode.getBoundingClientRect().height;
@@ -177,13 +190,5 @@ export class Animate extends React.Component<Props, State> {
     }
   };
 }
-
-const styles = StyleSheet.create({
-  transitionStyles: {
-    transitionProperty: 'opacity, height',
-    transitionTimingFunction: 'ease',
-    overflow: 'hidden'
-  }
-});
 
 export default Animate;

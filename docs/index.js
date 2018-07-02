@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Animate } from "../src/Animate";
 
+import AnimateGroupExample from "./AnimateGroupExample"
+
 import "./styles.css";
 
 class App extends React.Component {
@@ -16,6 +18,7 @@ class App extends React.Component {
             <h2>Start editing to see some magic happen!</h2>
           </div>
         </Animate>
+        <AnimateGroupExample />
       </React.Fragment>
     );
   }

@@ -7,8 +7,6 @@ Simple and light wrapper component for sliding (to auto height) and fading anima
 * [**Animate**](https://github.com/MingruiZhang/react-animate-mount#animate) - provides animation for single component when mount & umount
 * [**AnimateGroup**](https://github.com/MingruiZhang/react-animate-mount#animategroup) - provides animation for items entering & leaving a list.
 
-See ... for examples
-
 #### Install
 
 ```bash
@@ -17,8 +15,8 @@ $ yarn add react-animate-mount
 
 #### Demos
 
-**Animate**: https://codesandbox.io/s/303lzkow5
-**AnimateGroup**: https://codesandbox.io/s/zrwyk6l933
+Animate: https://codesandbox.io/s/303lzkow5
+AnimateGroup: https://codesandbox.io/s/zrwyk6l933
 
 
 ## Animate

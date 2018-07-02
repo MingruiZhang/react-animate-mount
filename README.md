@@ -15,6 +15,11 @@ See ... for examples
 $ yarn add react-animate-mount
 ```
 
+### Demos
+
+https://codesandbox.io/s/303lzkow5
+
+
 ## Animate
 
 Help animate single component when mount & umount

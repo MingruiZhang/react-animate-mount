@@ -1,7 +1,122 @@
-.App {
-  font-family: sans-serif;
+body {
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 1px;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.root {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  font-weight: 300;
+  font-size: 36px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.header-sub {
+  font-weight: 200;
+  font-size: 16px;
+  margin: 10px 20px 30px;
+}
+
+.nav {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
+  text-decoration: underline;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 20px;
+}
+
+.section .section-header {
+  font-weight: 300;
+}
+
+.section .section-text {
+  font-weight: 200;
+  font-size: 14px;
+}
+
+.code-container {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0 30px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.12) 0px 4px 4px 0px;
+}
+
+.code {
+  font-family: 'Inconsolata', monospace;
+  line-height: 1.4rem;
+  font-size: 14px;
+  background-color: black;
+  color: white;
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+.example-root {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.example-toggle {
+  user-select: none;
+  margin: 0 0 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: 1px solid black;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.example-toggle:hover,
+.example-toggle:active {
+  background-color: rgba(113, 129, 141, 0.15);
+}
+
+.example-content {
+  text-align: center;
+  background: rgba(105, 162, 176, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.example-animate {
   text-align: center;
   background: rgba(255, 202, 177, 0.4);
-  margin: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
   border-radius: 10px;
+}
+
+.floating {
+  top: -130px;
+  background-color: rgba(255, 202, 177);
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.12) 0px 4px 4px 0px;
+  position: absolute;
+  z-index: 10;
 }

@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AnimateGroup from '../src/AnimateGroup'
-
-type State = {|
-  items: Array<Object>
-|};
+import AnimateGroup from '../../src/AnimateGroup'
 
 let nameInc = 7;
 
@@ -23,25 +19,22 @@ const colorPalette = [
 
 const randomMode = ['AddRemove'];
 
-const buttonStyle = {
-  marginVertical: 20
-};
-
 const itemStyle = {
 	display: 'flex',
 	flexDirection: 'column',
-  margin: 10,
-  padding: 15,
+  marginTop: 10,
+  marginBottom: 10,
+  padding: 5,
 	alignItems: 'center',
   borderRadius: 10
 };
 
 const textStyle = {
-  fontSize: 14,
+  fontSize: 16,
   fontWeight: 'bold'
 };
 
-class AnimateGroupExample extends React.Component {
+class ExampleAnimateGroup extends React.PureComponent {
   state = {
     items: [
       {
@@ -121,10 +114,10 @@ class AnimateGroupExample extends React.Component {
   render() {
     const { items } = this.state;
     return (
-      <div>
-        <button onClick={this._handleRandomAction} style={buttonStyle}>
+      <div className="example-root">
+        <div onClick={this._handleRandomAction} className="example-toggle">
           Trigger random add/remove item
-        </button>
+        </div>
         <AnimateGroup>
           {items.map(item => (
             <div key={item.name} style={{...itemStyle, backgroundColor: item.bgc }}>
@@ -137,4 +130,4 @@ class AnimateGroupExample extends React.Component {
   }
 }
 
-export default AnimateGroupExample;
+export default ExampleAnimateGroup;

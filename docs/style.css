@@ -56,13 +56,17 @@ body {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  border-radius: 10px;
-  overflow: hidden;
+  /* border-radius: 10px; */
+  /* overflow: hidden; */
   margin: 20px 0 30px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.12) 0px 4px 4px 0px;
 }
 
 .code {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px 50px;
   font-family: 'Inconsolata', monospace;
   line-height: 1.4rem;
   font-size: 14px;
@@ -70,6 +74,14 @@ body {
   color: white;
   white-space: pre-wrap;
   text-align: left;
+}
+
+.code-red {
+  color: rgba(242, 112, 118, 100)
+}
+
+.code-purple {
+  color: rgba(200, 143, 236, 100)
 }
 
 .example-root {
@@ -84,7 +96,7 @@ body {
   user-select: none;
   margin: 0 0 20px;
   padding: 10px 20px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   font-weight: bold;
   border: 1px solid black;
   transition: background-color 0.15s ease;
@@ -112,8 +124,8 @@ body {
 }
 
 .floating {
-  top: -130px;
-  background-color: rgba(255, 202, 177);
+  top: -125px;
+  background-color: rgba(214, 167, 244, 100);
   width: 100%;
   box-sizing: border-box;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.12) 0px 4px 4px 0px;

@@ -7,7 +7,6 @@ import ExampleAnimate2 from './examples/Animate-2';
 import ExampleAnimateGroup from './examples/AnimateGroup';
 import CodeExample from './CodeExample';
 
-
 import './styles.css';
 
 class App extends React.Component {
@@ -23,55 +22,73 @@ class App extends React.Component {
           <li>AnimateGroup</li>
           <li>Github</li>
         </ul>
-        <section className="section">
+        <section className="section" id="Animate">
           <h2 className="section-header">&#60; Animate /&#62;</h2>
           <p className="section-text">SlideUp / SlideDown component (animate height 0 and 'auto')</p>
           <CodeExample
-            code={`
-        <Animate show={this.state.show} />
-          <div className="example-animate">
-            <h2>This is an animated header</h2>
-          </div>
-        </Animate>
-        `}
+            code={
+              <React.Fragment>
+                <div className="code-red">{`<Animate show={this.state.show} />`}</div>
+                <div>{`  <div className="example-animate">`}</div>
+                <div>{`    <h2>This component slideUp and slideDown</h2>`}</div>
+                <div>{`  </div>`}</div>
+                <div className="code-red">{`</Animate>`}</div>
+              </React.Fragment>
+            }
             example={<ExampleAnimate1 />}
           />
           <p className="section-text">FadeIn / FadeOut component (animate opacity 0 and 1)</p>
           <CodeExample
-            code={`
-        <Animate show={this.state.show} type="fade" />
-          <div className="example-animate floating">
-            <h2>This is an animated header</h2>
-          </div>
-        </Animate>
-        `}
+            code={
+              <React.Fragment>
+                <div className="code-red">
+                  <span>{`<Animate show={this.state.show} `}</span>
+                  <span className="code-purple">{`type="fade" `}</span>
+                  <span>{`/>`}</span>
+                </div>
+                <div>{`  <div className="example-animate">`}</div>
+                <div>{`    <h2>This component fadeIn and fadeOut</h2>`}</div>
+                <div>{`  </div>`}</div>
+                <div className="code-red">{`</Animate>`}</div>
+              </React.Fragment>
+            }
             example={<ExampleAnimate2 />}
           />
           <p className="section-text">Or simply animateIn on mount (like this page's header) </p>
           <CodeExample
-            code={`
-        <Animate animateOnInit show />
-          <h1>React Animate Mount</h1>
-          <h3> Simple and light component... </h3>
-        </Animate>
-        `}
+            code={
+              <React.Fragment>
+                <div className="code-red">
+                  <span>{`<Animate `}</span>
+                  <span className="code-purple">{`animateOnInit `}</span>
+                  <span>{`show />`}</span>
+                </div>
+                <div>{`  <h1>React Animate Mount</h1>`}</div>
+                <div>{`  <h3> Simple and light component... </h3>`}</div>
+                <div className="code-red">{`</Animate>`}</div>
+              </React.Fragment>
+            }
           />
         </section>
-        <section className="section">
+        <section className="section" id="AnimateGroup">
           <h2 className="section-header">&#60; AnimateGroup /&#62;</h2>
           <p className="section-text">Animate items when they are added / removed from a list</p>
           <CodeExample
-            code={`
-        <AnimateGroup>
-          {items.map(item => (<Item key=... data=... />)}
-        </AnimateGroup>
-      `}
+            code={
+              <React.Fragment>
+                <div className="code-red">{`<AnimateGroup>`}</div>
+                <div>{`  {items.map(item => (<Item key=... data=... />)}`}</div>
+                <div className="code-red">{`</AnimateGroup>`}</div>
+              </React.Fragment>
+            }
             example={<ExampleAnimateGroup />}
           />
         </section>
-        <section className="section">
+        <section className="section" id="Github">
           <h2 className="section-header">Github</h2>
-          <a href="https://github.com/MingruiZhang/react-animate-mount" className="section-text" target="_blank">https://github.com/MingruiZhang/react-animate-mount</a>
+          <a href="https://github.com/MingruiZhang/react-animate-mount" className="section-text" target="_blank">
+            https://github.com/MingruiZhang/react-animate-mount
+          </a>
         </section>
       </div>
     );

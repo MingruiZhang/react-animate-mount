@@ -4,11 +4,11 @@ import { Animate } from '../src/Animate';
 
 export default class CodeExample extends React.PureComponent {
   render() {
-		const { code, example: Example } = this.props;
+		const { code, example } = this.props;
     return (
       <div className="code-container">
-				<div className="code">{this.props.code}</div>
-				{Example}
+				<div className="code">{code}</div>
+				{example}
       </div>
     );
   }

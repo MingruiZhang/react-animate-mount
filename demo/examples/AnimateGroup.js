@@ -116,7 +116,7 @@ class ExampleAnimateGroup extends React.PureComponent {
     return (
       <div className="example-root">
         <div onClick={this._handleRandomAction} className="example-toggle">
-          Trigger random add/remove item
+          Add/Remove item
         </div>
         <AnimateGroup>
           {items.map(item => (

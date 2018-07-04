@@ -8,7 +8,7 @@ export default class ExampleAnimate1 extends React.PureComponent {
     return (
       <div className="example-root">
         <div className="example-toggle" onClick={this.toggleShow}>
-          Click to toggle header
+          Click to toggle animation
         </div>
         <Animate show={this.state.show}>
           <div className="example-animate">

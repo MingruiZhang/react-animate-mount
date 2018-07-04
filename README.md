@@ -15,6 +15,7 @@ $ yarn add react-animate-mount
 
 #### Demos
 
+* https://mingruizhang.github.io/react-animate-mount/
 * https://codesandbox.io/s/303lzkow5
 * https://codesandbox.io/s/zrwyk6l933
 

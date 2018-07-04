@@ -4,11 +4,10 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "build": "npm run clean && babel src/ -d lib/",
+    "build": "npm run clean && babel src/ -d lib/ && webpack",
     "clean": "rimraf lib",
     "prepublish": "npm run build",
     "lint": "eslint",
-    "doc-build": "webpack",
     "start": "NODE_ENV=development webpack-dev-server --mode=development --hot",
     "test": "NODE_ENV=test jest"
   },
@@ -56,5 +55,9 @@
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=16.3.0",
+    "react-dom": ">=16.3.0"
+  }
 }

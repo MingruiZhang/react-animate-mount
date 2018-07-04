@@ -8,6 +8,7 @@
     "clean": "rimraf lib",
     "prepublish": "npm run build",
     "lint": "eslint",
+    "doc-build": "webpack",
     "start": "NODE_ENV=development webpack-dev-server --mode=development --hot",
     "test": "NODE_ENV=test jest"
   },

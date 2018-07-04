@@ -4,8 +4,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const distPath = path.join(__dirname, './docs-dist');
-const docsPath = path.join(__dirname, './docs');
+const distPath = path.join(__dirname, './docs');
+const docsPath = path.join(__dirname, './demo');
 const srcPath = path.join(__dirname, './src');
 
 const rules = [

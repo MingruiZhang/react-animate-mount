@@ -56,8 +56,8 @@ body {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  /* border-radius: 10px; */
-  /* overflow: hidden; */
+  border-radius: 10px;
+  overflow: hidden;
   margin: 20px 0 30px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.12) 0px 4px 4px 0px;
 }
@@ -96,7 +96,7 @@ body {
   user-select: none;
   margin: 0 0 20px;
   padding: 10px 20px;
-  /* border-radius: 10px; */
+  border-radius: 10px;
   font-weight: bold;
   border: 1px solid black;
   transition: background-color 0.15s ease;

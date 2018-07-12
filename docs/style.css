@@ -56,7 +56,7 @@ a:active {
   padding: 15px 0;
   margin: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: space-between;
 }
 

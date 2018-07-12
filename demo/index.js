@@ -10,7 +10,7 @@ import CodeExample from './CodeExample';
 import './styles.css';
 
 class App extends React.Component {
-  state = { floatingNav: false };
+  state = { floatingNav: false, narrowScreen: false };
 
   componentDidMount() {
     window.onscroll = () => {
@@ -22,16 +22,19 @@ class App extends React.Component {
         this.setState({ floatingNav: false });
       }
     };
+
+    if (window.innerWidth < 800) {
+      this.setState({ narrowScreen: true });
+    }
   }
 
   render() {
-    const { floatingNav } = this.state;
+    const { floatingNav, narrowScreen } = this.state;
     return (
       <React.Fragment>
         <div className="floating-nav-fixed">
           <Animate show={floatingNav}>
             <div className="floating-nav">
-              <div className="floating-left">React Animate Mount</div>
               <ul className="floating-right">
                 <li>
                   <a href="#" onClick={this.scrollToAnimateSection}>
@@ -49,6 +52,7 @@ class App extends React.Component {
                   </a>
                 </li>
               </ul>
+              {narrowScreen ? null : <div className="floating-left">React Animate Mount</div>}
             </div>
           </Animate>
         </div>
@@ -76,7 +80,9 @@ class App extends React.Component {
           </ul>
           <section className="section" id="animate" ref={this._animateSectionRef}>
             <h2 className="section-header">&#60; Animate /&#62;</h2>
-            <p className="section-text">SlideUp / SlideDown component (animate height 0 and 'auto', like this page's floating nav)</p>
+            <p className="section-text">
+              SlideUp / SlideDown component (animate height 0 and 'auto', like this page's floating nav)
+            </p>
             <CodeExample
               code={
                 <React.Fragment>

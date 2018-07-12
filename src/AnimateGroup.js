@@ -53,7 +53,7 @@ class AnimateGroup extends React.Component<Props, State> {
     return renderChildren.map(({ status, child }) => {
       return (
         <Animate
-          animateOnInit={status !== Status.static}
+          appear={status !== Status.static}
           duration={duration}
           key={child.key}
           onAnimateComplete={this._handleEachAnimateComplete}

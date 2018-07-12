@@ -43,7 +43,7 @@ import { Animate } from 'react-animate-mount'
 | Name                                               | Type            | Description                     |
 | :------------------------------------------------- | :------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **show**        | boolean    | The key boolean that indicate if the children should be mounted    |
-| **animateOnInit** | ?boolean = false | Normally component is not animated when `<Animate>` mounts, with this flag the child component will animate in on initialization.   |
+| **appear** | ?boolean = false | Normally component is not animated when `<Animate>` mounts, with this flag the child component will animate in on initialization.   |
 | **duration**       | ?number = 200 | The duration you want the animate to last in ms, default to 250 |
 | **type**       | ?string('slide' or 'fade') = 'slide' | Specify animation effect, sliding or pure fading |
 | **onAnimateComplete**       | ?function | Invokes when component animation finishes. |

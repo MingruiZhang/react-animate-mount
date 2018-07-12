@@ -77,11 +77,11 @@ body {
 }
 
 .code-red {
-  color: rgba(242, 112, 118, 100)
+  color: rgba(242, 112, 118, 100);
 }
 
 .code-purple {
-  color: rgba(200, 143, 236, 100)
+  color: rgba(200, 143, 236, 100);
 }
 
 .example-root {
@@ -93,6 +93,9 @@ body {
 }
 
 .example-toggle {
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
   user-select: none;
   margin: 0 0 20px;
   padding: 10px 20px;
@@ -125,7 +128,7 @@ body {
 
 .floating {
   top: -125px;
-  background-color: rgba(214, 167, 244, 100);
+  background-color: rgba(224, 197, 241, 100);
   width: 100%;
   box-sizing: border-box;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.12) 0px 4px 4px 0px;

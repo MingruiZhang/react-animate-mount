@@ -15,7 +15,7 @@ type AnimateProps = {
 };
 
 type Props = {|
-  animateOnInit?: boolean,
+  appear?: boolean,
   children: React.Node,
   duration: number,
   onAnimateComplete?: () => void,
@@ -52,13 +52,12 @@ export class Animate extends React.Component<Props, State> {
 
   state = {
     animateStage: AnimateStage.static,
-    animateProps:
-      this.props.show && !this.props.animateOnInit ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 },
+    animateProps: this.props.show && !this.props.appear ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 },
     renderChildren: this.props.children,
     componentHeight: 0,
     props: {
       ...this.props,
-      show: this.props.animateOnInit ? !this.props.show : this.props.show
+      show: this.props.appear ? !this.props.show : this.props.show
     }
   };
 
@@ -100,6 +99,7 @@ export class Animate extends React.Component<Props, State> {
       renderChildren,
       props: { show, duration }
     } = this.state;
+
     const isStatic = animateStage === AnimateStage.static;
     const isAnimate = animateStage === AnimateStage.animate;
 

@@ -1,12 +1,22 @@
 body {
   font-family: 'Raleway', sans-serif;
   letter-spacing: 1px;
-  max-width: 960px;
-  margin: 0 auto;
   text-align: center;
+  margin: 0;
+  height: 100%;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+  text-decoration: none;
 }
 
 .root {
+  max-width: 960px;
+  margin: 0 auto;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
@@ -32,6 +42,42 @@ body {
   justify-content: space-around;
   list-style-type: none;
   text-decoration: underline;
+}
+
+.floating-nav-fixed {
+  z-index: 100;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 4px 0px;
+}
+
+.floating-nav {
+  padding: 15px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.floating-left {
+  margin-left: 40px;
+}
+
+.floating-right {
+  margin: 0;
+  margin-right: 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+}
+
+.floating-right li {
+  margin-right: 20px;
+  font-size: 14px;
 }
 
 .section {
@@ -77,11 +123,11 @@ body {
 }
 
 .code-red {
-  color: rgba(242, 112, 118, 100)
+  color: rgba(242, 112, 118, 100);
 }
 
 .code-purple {
-  color: rgba(200, 143, 236, 100)
+  color: rgba(200, 143, 236, 100);
 }
 
 .example-root {
@@ -93,6 +139,9 @@ body {
 }
 
 .example-toggle {
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
   user-select: none;
   margin: 0 0 20px;
   padding: 10px 20px;
@@ -125,7 +174,7 @@ body {
 
 .floating {
   top: -125px;
-  background-color: rgba(214, 167, 244, 100);
+  background-color: rgba(224, 197, 241, 100);
   width: 100%;
   box-sizing: border-box;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.12) 0px 4px 4px 0px;

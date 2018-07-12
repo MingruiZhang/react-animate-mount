@@ -1,6 +1,6 @@
 {
   "name": "react-animate-mount",
-  "version": "0.1.7",
+  "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

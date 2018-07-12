@@ -30,12 +30,13 @@ class App extends React.Component {
 
   render() {
     const { floatingNav, narrowScreen } = this.state;
+    const floatingRightCSS = narrowScreen ? 'floating-right' : 'floating-right right-margin';
     return (
       <React.Fragment>
         <div className="floating-nav-fixed">
           <Animate show={floatingNav}>
             <div className="floating-nav">
-              <ul className="floating-right">
+              <ul className={floatingRightCSS}>
                 <li>
                   <a href="#" onClick={this.scrollToAnimateSection}>
                     Animate

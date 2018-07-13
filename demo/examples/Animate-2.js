@@ -10,11 +10,13 @@ export default class ExampleAnimate2 extends React.PureComponent {
         <div className="example-toggle" onClick={this.toggleShow}>
           Click to toggle animation
         </div>
-        <Animate show={this.state.show} type="fade">
-          <div className="example-animate floating">
-            <h3>This component fadeIn and fadeOut</h3>
-          </div>
-        </Animate>
+        <div className="floating">
+          <Animate show={this.state.show} type="fade">
+            <div className="example-animate example-animate-2">
+              <h3>This component fadeIn and fadeOut</h3>
+            </div>
+          </Animate>
+        </div>
       </div>
     );
   }

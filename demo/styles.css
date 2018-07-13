@@ -175,12 +175,21 @@ a:active {
   border-radius: 10px;
 }
 
+.example-animate-2 {
+  text-align: center;
+  background: rgba(255, 202, 177, 0.4);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: rgba(224, 197, 241, 100);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.12) 0px 4px 4px 0px;
+
+}
+
 .floating {
   top: -125px;
-  background-color: rgba(224, 197, 241, 100);
   width: 100%;
-  box-sizing: border-box;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px 0px, rgba(0, 0, 0, 0.12) 0px 4px 4px 0px;
   position: absolute;
   z-index: 10;
 }

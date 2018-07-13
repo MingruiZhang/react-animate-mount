@@ -4,8 +4,10 @@
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/mingruizhang/react-animate-mount/blob/master/LICENSE)
 
 Simple and light wrapper component for sliding (to auto height) and fading animation when children mounts and unmount:
-* [**Animate**](https://github.com/MingruiZhang/react-animate-mount#animate) - provides animation for single component when mount & umount
+* [**Animate**](https://github.com/MingruiZhang/react-animate-mount#animate) - provides sliding and fading animation for single component when mount & umount
 * [**AnimateGroup**](https://github.com/MingruiZhang/react-animate-mount#animategroup) - provides animation for items entering & leaving a list.
+
+![Gif Demo](https://media.giphy.com/media/WxWnDrOndfrEUqoqCx/giphy.gif)
 
 #### Install
 
